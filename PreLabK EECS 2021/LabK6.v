@@ -1,0 +1,20 @@
+module labk;
+reg a, b, c, expect;
+wire inp1, inp2, z;
+not my_not(tmp, c);
+and my_and(imp1, a, tmp);
+and my_and1(imp2, c, b);
+or my_or(z, imp1, imp2);
+initial
+begin
+a = 1; 
+b = 0;
+c = 0;
+expect = 1 & 1;
+#1;
+if(expect === z)
+$display("PASS: a=%b b=%b c=%b z=%b", a, b, c, z);
+else
+$display("FAIL: a=%b b=%b c=%b z=%b", a, b, c, z);
+end
+endmodule

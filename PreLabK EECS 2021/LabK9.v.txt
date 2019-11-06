@@ -1,0 +1,25 @@
+module labk;
+reg a, b, c;
+wire inp1, imp2, imp3, inp4, cout, z;
+integer i, j, k;
+xor my_xor(imp1, a, b);
+and my_and(imp2, a, b);
+xor my_xorr(z, imp1, c);
+and my_andr(imp4, c, imp1);
+or my_or(cout, imp4, imp2); 
+
+initial
+begin
+for (i = 0; i < 3; i = i + 1)
+begin 
+for (j = 0; j < 3; j = j + 1)
+begin 
+for (k = 0; k < 3; k = k + 1)
+a = i; 
+b = j;
+c = k; 
+$display("a=%b b=%b c=%b z=%b", a, b, c, z);
+end
+end
+end
+endmodule 
